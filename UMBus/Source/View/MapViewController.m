@@ -85,7 +85,7 @@
                                                       self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height - _stopTray.frame.size.height,
                                                       _stopTray.frame.size.width,
                                                       _stopTray.frame.size.height);
-                     } completion:NULL];
+                     }];
 }
 
 - (void)dismissTray {
