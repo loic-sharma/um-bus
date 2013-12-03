@@ -27,6 +27,7 @@
 		AB2C4C24184D1F0C001E2EA2 /* StreetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2C4C23184D1F0C001E2EA2 /* StreetViewController.m */; };
 		AB2C4C27184D49A5001E2EA2 /* street-view-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB2C4C25184D49A5001E2EA2 /* street-view-icon.png */; };
 		AB2C4C28184D49A5001E2EA2 /* street-view-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB2C4C26184D49A5001E2EA2 /* street-view-icon@2x.png */; };
+		ABCDF08A184E6E210002B821 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCDF089184E6E210002B821 /* DataStore.m */; };
 		ABEDEAD8184BD90D00B82E59 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEDEAD7184BD90D00B82E59 /* Foundation.framework */; };
 		ABEDEADA184BD90D00B82E59 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEDEAD9184BD90D00B82E59 /* CoreGraphics.framework */; };
 		ABEDEADC184BD90D00B82E59 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEDEADB184BD90D00B82E59 /* UIKit.framework */; };
@@ -94,6 +95,8 @@
 		AB2C4C25184D49A5001E2EA2 /* street-view-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "street-view-icon.png"; sourceTree = "<group>"; };
 		AB2C4C26184D49A5001E2EA2 /* street-view-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "street-view-icon@2x.png"; sourceTree = "<group>"; };
 		AB2C4C29184D5516001E2EA2 /* AnnArbor.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AnnArbor.gpx; sourceTree = "<group>"; };
+		ABCDF088184E6E210002B821 /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStore.h; sourceTree = "<group>"; };
+		ABCDF089184E6E210002B821 /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 		ABEDEAD4184BD90D00B82E59 /* UMBus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UMBus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABEDEAD7184BD90D00B82E59 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ABEDEAD9184BD90D00B82E59 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -302,6 +305,8 @@
 				ABEDEB7D184C103B00B82E59 /* App Delegate */,
 				ABEDEB80184C103B00B82E59 /* main.m */,
 				ABEDEB81184C103B00B82E59 /* UMBus-Prefix.pch */,
+				ABCDF088184E6E210002B821 /* DataStore.h */,
+				ABCDF089184E6E210002B821 /* DataStore.m */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -543,6 +548,7 @@
 				ABEDEBB8184C350400B82E59 /* StopAnnotation.m in Sources */,
 				ABEDEBC1184C3CA000B82E59 /* AnnouncementsViewControllerModel.m in Sources */,
 				ABEDEBBE184C3BE900B82E59 /* AnnoucementsViewController.m in Sources */,
+				ABCDF08A184E6E210002B821 /* DataStore.m in Sources */,
 				AB155C93184D68B500BF1A09 /* StopTrayModel.m in Sources */,
 				ABEDEB97184C103B00B82E59 /* Bus.m in Sources */,
 				ABEDEB93184C103B00B82E59 /* AppDelegate.m in Sources */,

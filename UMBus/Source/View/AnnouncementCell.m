@@ -22,9 +22,29 @@
     if (self = [super initWithCoder:aDecoder]) {
         RAC(self, announcementLabel.text) = RACObserve(self, model.announcement.text);
         
+        [RACObserve(self, model.announcement.text) subscribeNext:^(NSString *text) {
+            if (text) {
+                self.announcementLabel.text = text;
+                
+                [self updateLabelHeight];
+            }
+        }];
+        
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
+}
+
+- (void)updateLabelHeight {
+    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:self.model.announcement.text
+                                                                         attributes:@{NSFontAttributeName: self.announcementLabel.font}];
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){self.announcementLabel.frame.size.width, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    
+    CGRect newFrame = self.announcementLabel.frame;
+    newFrame.size.height = rect.size.height;
+    self.announcementLabel.frame = newFrame;
 }
 
 @end

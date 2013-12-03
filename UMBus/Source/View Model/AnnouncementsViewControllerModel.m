@@ -7,31 +7,19 @@
 //
 
 #import "AnnouncementsViewControllerModel.h"
-#import "UMNetworkingSession.h"
-
-@interface AnnouncementsViewControllerModel ()
-
-@property (strong, nonatomic) UMNetworkingSession *session;
-
-@end
+#import "DataStore.h"
 
 @implementation AnnouncementsViewControllerModel
 
 - (instancetype)init {
     if (self = [super init]) {
-        _session = [[UMNetworkingSession alloc] init];
+        RAC(self, announcements) = RACObserve([DataStore sharedManager], announcements);
     }
     return self;
 }
 
 - (void)fetchAnnouncements {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    [_session fetchAnnouncementsWithSuccessBlock:^(NSArray *announcements) {
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        self.announcements = announcements;
-    } errorBlock:^(NSError *error) {
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    }];
+    [[DataStore sharedManager] fetchAnnouncements];
 }
 
 @end
