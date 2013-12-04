@@ -28,6 +28,9 @@
 		AB2C4C27184D49A5001E2EA2 /* street-view-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB2C4C25184D49A5001E2EA2 /* street-view-icon.png */; };
 		AB2C4C28184D49A5001E2EA2 /* street-view-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB2C4C26184D49A5001E2EA2 /* street-view-icon@2x.png */; };
 		ABCDF08A184E6E210002B821 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCDF089184E6E210002B821 /* DataStore.m */; };
+		ABCDF08D184E79E10002B821 /* DirectionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCDF08C184E79E10002B821 /* DirectionsManager.m */; };
+		ABCDF090184E7BF30002B821 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCDF08F184E7BF30002B821 /* SearchViewController.m */; };
+		ABCDF0B6184E993B0002B821 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCDF0B5184E993B0002B821 /* Place.m */; };
 		ABEDEAD8184BD90D00B82E59 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEDEAD7184BD90D00B82E59 /* Foundation.framework */; };
 		ABEDEADA184BD90D00B82E59 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEDEAD9184BD90D00B82E59 /* CoreGraphics.framework */; };
 		ABEDEADC184BD90D00B82E59 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEDEADB184BD90D00B82E59 /* UIKit.framework */; };
@@ -97,6 +100,12 @@
 		AB2C4C29184D5516001E2EA2 /* AnnArbor.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AnnArbor.gpx; sourceTree = "<group>"; };
 		ABCDF088184E6E210002B821 /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStore.h; sourceTree = "<group>"; };
 		ABCDF089184E6E210002B821 /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
+		ABCDF08B184E79E10002B821 /* DirectionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionsManager.h; sourceTree = "<group>"; };
+		ABCDF08C184E79E10002B821 /* DirectionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionsManager.m; sourceTree = "<group>"; };
+		ABCDF08E184E7BF30002B821 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		ABCDF08F184E7BF30002B821 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		ABCDF0B4184E993B0002B821 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
+		ABCDF0B5184E993B0002B821 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
 		ABEDEAD4184BD90D00B82E59 /* UMBus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UMBus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABEDEAD7184BD90D00B82E59 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ABEDEAD9184BD90D00B82E59 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -307,6 +316,8 @@
 				ABEDEB81184C103B00B82E59 /* UMBus-Prefix.pch */,
 				ABCDF088184E6E210002B821 /* DataStore.h */,
 				ABCDF089184E6E210002B821 /* DataStore.m */,
+				ABCDF08B184E79E10002B821 /* DirectionsManager.h */,
+				ABCDF08C184E79E10002B821 /* DirectionsManager.m */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -329,6 +340,8 @@
 				ABEDEBB4184C336C00B82E59 /* Stop.m */,
 				AB155C96184D8A1000BF1A09 /* Route.h */,
 				AB155C97184D8A1000BF1A09 /* Route.m */,
+				ABCDF0B4184E993B0002B821 /* Place.h */,
+				ABCDF0B5184E993B0002B821 /* Place.m */,
 				ABEDEBC2184C3CCF00B82E59 /* Announcement.h */,
 				ABEDEBC3184C3CCF00B82E59 /* Announcement.m */,
 				ABEDEB9E184C139100B82E59 /* BusAnnotation.h */,
@@ -359,6 +372,8 @@
 				ABEDEBBD184C3BE900B82E59 /* AnnoucementsViewController.m */,
 				AB2C4C22184D1F0C001E2EA2 /* StreetViewController.h */,
 				AB2C4C23184D1F0C001E2EA2 /* StreetViewController.m */,
+				ABCDF08E184E7BF30002B821 /* SearchViewController.h */,
+				ABCDF08F184E7BF30002B821 /* SearchViewController.m */,
 				ABEDEBC5184C3F3800B82E59 /* AnnouncementCell.h */,
 				ABEDEBC6184C3F3800B82E59 /* AnnouncementCell.m */,
 				AB155C8E184D68A400BF1A09 /* StopTray.h */,
@@ -551,8 +566,10 @@
 				ABCDF08A184E6E210002B821 /* DataStore.m in Sources */,
 				AB155C93184D68B500BF1A09 /* StopTrayModel.m in Sources */,
 				ABEDEB97184C103B00B82E59 /* Bus.m in Sources */,
+				ABCDF090184E7BF30002B821 /* SearchViewController.m in Sources */,
 				ABEDEB93184C103B00B82E59 /* AppDelegate.m in Sources */,
 				ABEDEB9A184C103B00B82E59 /* MapViewController.m in Sources */,
+				ABCDF08D184E79E10002B821 /* DirectionsManager.m in Sources */,
 				AB2C4C24184D1F0C001E2EA2 /* StreetViewController.m in Sources */,
 				ABEDEB94184C103B00B82E59 /* main.m in Sources */,
 				ABEDEBC7184C3F3800B82E59 /* AnnouncementCell.m in Sources */,
@@ -560,6 +577,7 @@
 				ABEDEBB5184C336C00B82E59 /* Stop.m in Sources */,
 				ABEDEB99184C103B00B82E59 /* UMResponseSerializer.m in Sources */,
 				ABEDEBA0184C139100B82E59 /* BusAnnotation.m in Sources */,
+				ABCDF0B6184E993B0002B821 /* Place.m in Sources */,
 				ABEDEB98184C103B00B82E59 /* UMNetworkingSession.m in Sources */,
 				ABEDEBC4184C3CCF00B82E59 /* Announcement.m in Sources */,
 				ABEDEBCA184C3F4600B82E59 /* AnnouncementCellModel.m in Sources */,

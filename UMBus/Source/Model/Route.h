@@ -8,10 +8,15 @@
 
 #import "Mantle.h"
 
+@class Stop;
+
 @interface Route : MTLModel <MTLJSONSerializing>
 
 @property (strong, nonatomic) NSString *id, *name, *color, *topOfLoopStopID;
 @property (nonatomic) BOOL isActive;
-@property (strong, nonatomic) NSArray *stops;
+@property (strong, nonatomic) NSArray *stops, *stopObjects;
+
+- (void)fetchStops;
+- (BOOL)servicesStop:(Stop *)stop;
 
 @end

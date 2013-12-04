@@ -8,8 +8,29 @@
 
 #import "Route.h"
 #import "Stop.h"
+#import "DataStore.h"
 
 @implementation Route
+
+- (void)fetchStops {
+    NSMutableArray *mutableStopObjects;
+    if ([[DataStore sharedManager] stops]) {
+        for (Stop *stop in [[DataStore sharedManager] stops]) {
+            if ([self.stops containsObject:stop.id]) {
+                [mutableStopObjects addObject:stop];
+            }
+        }
+        self.stopObjects = mutableStopObjects;
+    }
+}
+
+- (BOOL)servicesStop:(Stop *)stop {
+    if ([self.stops containsObject:stop.id]) {
+        return YES;
+    }
+    
+    return NO;
+}
 
 #pragma mark MTLJSONSerializing
 

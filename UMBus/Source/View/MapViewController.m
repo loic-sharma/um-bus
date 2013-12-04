@@ -17,8 +17,6 @@
 #import "StopTray.h"
 #import "StopTrayModel.h"
 
-#import "DataStore.h"
-
 @interface MapViewController () <MKMapViewDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
@@ -43,7 +41,7 @@
     _stopTray.frame = CGRectMake(0, self.view.frame.size.height + 44, _stopTray.frame.size.width, _stopTray.frame.size.height);
     _stopTray.target = self;
     [self.view insertSubview:_stopTray aboveSubview:self.mapView];
-    
+        
     [RACObserve(self, model.busAnnotations) subscribeNext:^(NSDictionary *annotations) {
         if (annotations) {
             for (Bus *bus in self.model.buses) {
@@ -59,13 +57,6 @@
                 StopAnnotation *annotation = [annotations objectForKey:stop.id];
                 [self.mapView addAnnotation:annotation];
             }
-        }
-    }];
-    
-    [[DataStore sharedManager] fetchBuses];
-    [RACObserve([DataStore sharedManager], buses) subscribeNext:^(NSArray *buses) {
-        if (buses) {
-            NSLog(@"Buses: %@", buses);
         }
     }];
 }

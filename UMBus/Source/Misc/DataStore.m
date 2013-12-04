@@ -8,6 +8,8 @@
 
 #import "DataStore.h"
 #import "UMNetworkingSession.h"
+#import "Stop.h"
+#import "Route.h"
 
 @interface DataStore ()
 
@@ -36,6 +38,13 @@
     return self;
 }
 
+- (void)fetchAll {
+    [self fetchBuses];
+    [self fetchRoutes];
+    [self fetchStops];
+    [self fetchAnnouncements];
+}
+
 - (void)fetchBuses {
     [_networkingSession fetchBusLocationsWithSuccessBlock:^(NSArray *buses) {
         self.buses = buses;
@@ -58,6 +67,41 @@
     [_networkingSession fetchAnnouncementsWithSuccessBlock:^(NSArray *announcements) {
         self.announcements = announcements;
     } errorBlock:NULL];
+}
+
+- (void)fetchBusesIfNil {
+    if (![[DataStore sharedManager] buses]) {
+        [[DataStore sharedManager] fetchBuses];
+    }
+}
+
+- (void)fetchRoutesIfNil {
+    if (![[DataStore sharedManager] routes]) {
+        [[DataStore sharedManager] fetchRoutes];
+    }
+}
+
+- (void)fetchStopsIfNil {
+    if (![[DataStore sharedManager] stops]) {
+        [[DataStore sharedManager] fetchStops];
+    }
+}
+
+- (void)fetchAnnouncementsIfNil {
+    if (![[DataStore sharedManager] announcements]) {
+        [[DataStore sharedManager] fetchAnnouncements];
+    }
+}
+
+- (NSArray *)routesServicingStop:(Stop *)stop {
+    NSMutableArray *mutableArray = [NSMutableArray array];
+    for (Route *route in self.routes) {
+        if ([route servicesStop:stop]) {
+            [mutableArray addObject:route];
+        }
+    }
+    
+    return mutableArray;
 }
 
 @end

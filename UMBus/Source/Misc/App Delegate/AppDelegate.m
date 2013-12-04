@@ -8,11 +8,14 @@
 
 #import <GoogleMaps/GoogleMaps.h>
 #import "AppDelegate.h"
+#import "DataStore.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [GMSServices provideAPIKey:@"AIzaSyCCBKyJMm7zWhVxukAy8k-_ejMlc5t8ugo"];
+    
+    [[DataStore sharedManager] fetchAll];
     
     /* This looks bad
     UIColor *blue = [UIColor colorWithRed:0.007843 green:0.152941 blue:0.298039 alpha:1.0000];

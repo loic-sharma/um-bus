@@ -7,4 +7,5 @@ target "UMBus" do
     pod 'Google-Maps-iOS-SDK', '~> 1.6.0'
     pod 'TTTAttributedLabel', '~> 1.7.5'
     pod 'FormatterKit', '~> 1.3.1'
+    pod 'SPGooglePlacesAutocomplete', '~> 1.0.2'
 end

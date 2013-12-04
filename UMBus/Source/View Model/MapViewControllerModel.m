@@ -7,42 +7,39 @@
 //
 
 #import "MapViewControllerModel.h"
-#import "UMNetworkingSession.h"
+#import "DataStore.h"
 #import "Bus.h"
 #import "BusAnnotation.h"
 #import "Stop.h"
 #import "StopAnnotation.h"
 #import "Route.h"
 
-@interface MapViewControllerModel ()
-
-@property (strong, nonatomic) UMNetworkingSession *session;
-
-@end
-
 @implementation MapViewControllerModel
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.session = [[UMNetworkingSession alloc] init];
         [self manageBusAnnotations];
         [self manageStopAnnotations];
         
         _streetViewBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Street View" style:UIBarButtonItemStylePlain target:nil action:nil];
         _directionsBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Directions" style:UIBarButtonItemStylePlain target:nil action:nil];
+        
+        [RACObserve([DataStore sharedManager], buses) subscribeNext:^(NSArray *buses) {
+            self.buses = buses;
+            [self fetchBuses]; // continue to fetch buses so that we can update their locations
+        }];
+        
+        RAC(self, stops) = RACObserve([DataStore sharedManager], stops);
     }
     return self;
 }
 
 - (void)fetchBuses {
-    [self.session fetchBusLocationsWithSuccessBlock:^(NSArray *buses) {
-        self.buses = buses;
-        
-        // update bus locations continuously
-        [self fetchBuses];
-    } errorBlock:^(NSError *error) {
-        NSLog(@"-fetchBusLocationsWithSuccessBlock error: %@", error.localizedDescription);
-    }];
+    [[DataStore sharedManager] fetchBuses];
+}
+
+- (void)fetchStops {
+    [[DataStore sharedManager] fetchStops];
 }
 
 - (void)manageBusAnnotations {
@@ -62,14 +59,6 @@
             }
             self.busAnnotations = mutableAnnotations;
         }
-    }];
-}
-
-- (void)fetchStops {
-    [self.session fetchStopsWithSuccessBlock:^(NSArray *stops) {
-        self.stops = stops;
-    } errorBlock:^(NSError *error) {
-        NSLog(@"-fetchStopsWithSuccessBlock error: %@", error.localizedDescription);
     }];
 }
 
